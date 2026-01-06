@@ -82,7 +82,14 @@ header{
     color: #ffc107;
 }
 a{
-    text-decoration: none ;
+    text-decoration: none;
+}
+a.text-decoration-none {
+    display: block;
+    color: inherit;
+}
+.box-card .card {
+    width: 100%;
 }
 
 

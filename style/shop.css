@@ -4,6 +4,12 @@
     padding: 0;
 }
 
+/* Product Card Links */
+a.text-decoration-none {
+    display: block;
+    color: inherit;
+}
+
 /* Product Cards */
 .card {
     border: none;
@@ -11,6 +17,7 @@
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s, box-shadow 0.3s;
+    width: 100%;
 }
 
 .card:hover {
