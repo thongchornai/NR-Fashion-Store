@@ -3,8 +3,8 @@ const products = {
     1: {
         name: "Lace Trim Tops",
         price: 10.46,
-        oldPrice: 14.95,
-        discount: 30,
+        oldPrice: null,
+        discount: 0,
         rating: 4.0,
         reviews: 128,
         description: "Elegant lace trim tops perfect for any occasion. Made with high-quality fabric that ensures comfort and style. Features delicate lace detailing and a flattering fit.",
@@ -24,8 +24,8 @@ const products = {
     2: {
         name: "Regular T-Shirt With Printed",
         price: 11.86,
-        oldPrice: 16.95,
-        discount: 30,
+        oldPrice: null,
+        discount: 0,
         rating: 4.0,
         reviews: 95,
         description: "Comfortable regular t-shirt with trendy printed design. Perfect for casual everyday wear with a relaxed fit.",
@@ -46,8 +46,8 @@ const products = {
     3: {
         name: "Hip Cut Line Skirt",
         price: 8.95,
-        oldPrice: 12.79,
-        discount: 30,
+        oldPrice: null,
+        discount: 0,
         rating: 4.0,
         reviews: 87,
         description: "Stylish hip cut line skirt with modern design. Perfect for creating versatile looks from casual to semi-formal.",
@@ -70,8 +70,8 @@ const products = {
     4: {
         name: "Satin Flared Midi Skirt",
         price: 13.96,
-        oldPrice: 19.95,
-        discount: 30,
+        oldPrice: null,
+        discount: 0,
         rating: 4.0,
         reviews: 112,
         description: "Elegant satin flared midi skirt with luxurious feel. Perfect for special occasions and evening events.",
@@ -94,8 +94,8 @@ const products = {
     5: {
         name: "Cropped Knitted Polo Shirts",
         price: 28.95,
-        oldPrice: 41.36,
-        discount: 30,
+        oldPrice: null,
+        discount: 0,
         rating: 4.0,
         reviews: 76,
         description: "Trendy cropped knitted polo shirt with modern styling. Comfortable knit fabric perfect for layering.",
@@ -118,8 +118,8 @@ const products = {
     6: {
         name: "Regular Knitted Polo Shirts",
         price: 28.95,
-        oldPrice: 41.36,
-        discount: 30,
+        oldPrice: null,
+        discount: 0,
         rating: 4.0,
         reviews: 89,
         description: "Classic regular knitted polo shirt. Versatile piece that works for both casual and smart-casual occasions.",
@@ -139,8 +139,8 @@ const products = {
     7: {
         name: "Midi Slitted Skirt",
         price: 28.95,
-        oldPrice: 41.36,
-        discount: 30,
+        oldPrice: null,
+        discount: 0,
         rating: 4.0,
         reviews: 103,
         description: "Elegant midi skirt with stylish slit detail. Perfect for creating sophisticated looks.",
@@ -164,8 +164,8 @@ const products = {
     8: {
         name: "Cropped Denim Jackets",
         price: 28.95,
-        oldPrice: 41.36,
-        discount: 30,
+        oldPrice: null,
+        discount: 0,
         rating: 4.0,
         reviews: 134,
         description: "Trendy cropped denim jacket perfect for layering. Classic denim style with modern cropped cut.",
@@ -245,6 +245,59 @@ const products = {
         material: "Cotton Fleece",
         style: "Casual",
         fit: "Regular Fit"
+    },
+    12: {
+        name: "QUILTED TECHNICAL JACKET",
+        price: 24.95,
+        oldPrice: null,
+        discount: 0,
+        rating: 4.5,
+        reviews: 167,
+        description: "Technical quilted jacket with modern design. Perfect for outdoor activities and casual wear. Water-resistant fabric.",
+        images: [
+            "https://static.zara.net/assets/public/3ca2/3cbf/f779471f9235/12641e1dccad/01437995800-a1/01437995800-a1.jpg?ts=1761299560170&w=1125"
+        ],
+        colors: [{name: "Black", image: "https://static.zara.net/assets/public/3ca2/3cbf/f779471f9235/12641e1dccad/01437995800-a1/01437995800-a1.jpg?ts=1761299560170&w=1125"}],
+        availableSizes: ["M", "L", "XL"],
+        material: "100% Polyester",
+        style: "Technical",
+        fit: "Regular Fit"
+    },
+    13: {
+        name: "LEATHER JACKET WITH POCKETS",
+        price: 32.95,
+        oldPrice: null,
+        discount: 0,
+        rating: 4.5,
+        reviews: 203,
+        description: "Classic leather jacket with functional pockets. Premium quality leather with modern styling. Perfect for any season.",
+        images: [
+            "https://static.zara.net/assets/public/9a81/374c/5c5d40a69ec8/b02474382f3b/05388400500-p/05388400500-p.jpg?ts=1767102371312&w=1024"
+        ],
+        colors: [{name: "Black", image: "https://static.zara.net/assets/public/9a81/374c/5c5d40a69ec8/b02474382f3b/05388400500-p/05388400500-p.jpg?ts=1767102371312&w=1024"}],
+        availableSizes: ["S", "M", "L", "XL"],
+        material: "100% Leather",
+        style: "Classic",
+        fit: "Regular Fit"
+    },
+    14: {
+        name: "Basketball Cap",
+        price: 8.95,
+        oldPrice: null,
+        discount: 0,
+        rating: 5.0,
+        reviews: 312,
+        description: "Elegant leather watch with minimalist design. Perfect accessory for any outfit. Water-resistant with Japanese movement.",
+        images: [
+            "https://zandokh.com/image/catalog/products/2025-12/5582505108/TAKK9039.jpg"
+        ],
+        colors: [
+            {name: "white", image: "https://zandokh.com/image/catalog/products/2025-12/5582505108/TAKK9039.jpg"}
+        ],
+        availableSizes: ["One Size"],
+        material: "Genuine Leather, Stainless Steel",
+        style: "Classic",
+        fit: "Adjustable"
     }
 };
 
@@ -262,11 +315,22 @@ window.addEventListener('DOMContentLoaded', function() {
         document.querySelector('h1.fw-bold').textContent = product.name;
 
         // Update price
-        document.querySelector('h3.text-danger').innerHTML = `
-            US $${product.price.toFixed(2)} 
-            <span class="badge bg-danger ms-2">-${product.discount}%</span>
-        `;
-        document.querySelector('.text-muted del').textContent = `US $${product.oldPrice.toFixed(2)}`;
+        const priceElement = document.querySelector('h3.text-danger');
+        const oldPriceElement = document.querySelector('.text-muted del');
+        
+        if (product.discount > 0 && product.oldPrice) {
+            // Show discount for products with discount
+            priceElement.innerHTML = `
+                US $${product.price.toFixed(2)} 
+                <span class="badge bg-danger ms-2">-${product.discount}%</span>
+            `;
+            oldPriceElement.textContent = `US $${product.oldPrice.toFixed(2)}`;
+            oldPriceElement.parentElement.style.display = 'block';
+        } else {
+            // Show only price for products without discount (IDs 1-8)
+            priceElement.innerHTML = `US $${product.price.toFixed(2)}`;
+            oldPriceElement.parentElement.style.display = 'none';
+        }
 
         // Update images
         const mainImage = document.getElementById('mainImage');

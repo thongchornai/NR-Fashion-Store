@@ -30,12 +30,40 @@ header{
     justify-content: center;
     text-align: center;
     color: white;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content .btn {
+    padding: 12px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }/* Category Cards */
 .category-card {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
     height: 400px;
+    cursor: pointer;
 }
 
 .category-card img {
@@ -56,23 +84,71 @@ header{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.4);
     color: white;
     text-align: center;
+    opacity: 0;
+    transition: all 0.3s ease;
 }
+
+.category-card:hover .category-content {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.category-content h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.category-content p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.category-content .btn {
+    padding: 10px 30px;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
+
+.category-content .btn:hover {
+    background: white;
+    color: #333;
+    transform: translateY(-2px);
+}
+
+/* Product Cards */
 .box-card{
     margin-top: 50px;
 }
 .box-card h2{
     position: relative;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+}
+
+.box-card .card {
+    width: 100%;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: 1px solid #eee;
+}
+
+.box-card .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
 }
 
 .box-card .card .image{
     overflow: hidden;
-    
+    border-radius: 10px 10px 0 0;
 }
 .box-card .card .image img{
-    transition:all ease-in-out 0.3s;
+    transition: all ease-in-out 0.3s;
 }
 .box-card .card .image:hover img{
     transform: scale(1.05);
@@ -80,6 +156,7 @@ header{
 }
 .rating {
     color: #ffc107;
+    font-size: 0.9rem;
 }
 a{
     text-decoration: none;
@@ -87,6 +164,58 @@ a{
 a.text-decoration-none {
     display: block;
     color: inherit;
+}
+a.text-decoration-none:hover {
+    color: inherit;
+}
+
+/* Newsletter Section */
+.newsletter {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.newsletter h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.newsletter .form-control {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px 0 0 50px;
+}
+
+.newsletter .btn {
+    padding: 12px 30px;
+    border-radius: 0 50px 50px 0;
+    font-weight: 600;
+}
+a.text-decoration-none:hover {
+    color: inherit;
+}
+
+/* Newsletter Section */
+.newsletter {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.newsletter h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.newsletter .form-control {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 50px 0 0 50px;
+}
+
+.newsletter .btn {
+    padding: 12px 30px;
+    border-radius: 0 50px 50px 0;
+    font-weight: 600;
 }
 .box-card .card {
     width: 100%;

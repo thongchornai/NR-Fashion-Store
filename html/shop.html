@@ -126,18 +126,18 @@
                     <div class="col-md-3">
                         <h5>Categories</h5>
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action">All</a>
-                            <a href="#" class="list-group-item list-group-item-action">Men</a>
-                            <a href="#" class="list-group-item list-group-item-action">Women</a>
-                            <a href="#" class="list-group-item list-group-item-action">Accessories</a>
+                            <a href="#" class="list-group-item list-group-item-action active category-filter" data-category="all">All</a>
+                            <a href="#" class="list-group-item list-group-item-action category-filter" data-category="men">Men</a>
+                            <a href="#" class="list-group-item list-group-item-action category-filter" data-category="women">Women</a>
+                            <a href="#" class="list-group-item list-group-item-action category-filter" data-category="accessories">Accessories</a>
                         </div>
 
                         <h5 class="mt-4">Price Range</h5>
                         <div class="range">
-                            <input type="range" class="form-range" min="0" max="1000" step="10">
+                            <input type="range" id="priceRange" class="form-range" min="0" max="1000" step="10" value="1000">
                             <div class="d-flex justify-content-between">
                                 <span>$0</span>
-                                <span>$1000</span>
+                                <span id="priceValue">$1000</span>
                             </div>
                         </div>
 
@@ -155,71 +155,41 @@
                             <input type="checkbox" class="btn-check" id="size-xl">
                             <label class="btn btn-outline-dark" for="size-xl">XL</label>
                         </div>
+
+                        <button id="resetFilters" class="btn btn-danger w-100 mt-4">
+                            <i class="bi bi-arrow-clockwise"></i> Reset Filters
+                        </button>
                     </div>
 
                     <div class="col-md-9">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <div>
-                                <span>Showing 1-12 of 36 products</span>
+                                <span id="productCount">Showing 1-12 of 36 products</span>
                             </div>
                             <div>
-                                <select class="form-select">
-                                    <option>Sort by: Featured</option>
-                                    <option>Price: Low to High</option>
-                                    <option>Price: High to Low</option>
-                                    <option>Newest First</option>
+                                <select id="sortSelect" class="form-select">
+                                    <option value="featured">Sort by: Featured</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="newest">Newest First</option>
                                 </select>
                             </div>
                         </div>
 
-                        <div class="row g-4">
-                            <!-- Product Cards -->
-
-                            <div class="col-6 col-md-4">
-                                <a href="product-detail.html?id=1" class="text-decoration-none">
-                                    <div class="card">
-                                        <div class="image">
-                                            <img class="w-100"
-                                                src="https://zandokh.com/image/catalog/products/2025-11/22225081762/ZD__0501.jpg"
-                                                alt="">
-                                        </div>
-                                        <div class="title p-3">
-                                            <span><b>US $10.46</b>
-                                            </span>
-                                            <p>Lace Trim Tops</p>
-                                            <div class="rating">
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star-fill"></i>
-                                                <i class="bi bi-star"></i>
-                                            </div>
-                                        </div>
-                                </a>
-                            </div>
-                            <!-- Repeat for other products -->
+                        <div id="productGrid" class="row g-4">
+                            <!-- Products will be loaded dynamically by JavaScript -->
                         </div>
 
                         <!-- Pagination -->
-                        <nav class="mt-4">
-                            <ul class="pagination justify-content-center">
-                                <li class="page-item disabled">
-                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#">Next</a>
-                                </li>
-                            </ul>
+                        <nav class="mt-4" id="paginationContainer">
+                            <!-- Pagination will be loaded dynamically by JavaScript -->
                         </nav>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- New Products -->
+        <!-- New Products
         <section id="New" class="py-5">
             <div class="box-card container">
                 <h2 class="text-center">New Products</h2>
@@ -232,9 +202,9 @@
                                         src="https://zandokh.com/image/catalog/products/2025-11/22225081683/ZD__8335.jpg"
                                         alt="">
                                 </div>
-                                <div class="title p-2">
-                                    <span><b>US $28.95</b></span>
-                                    <p>Cropped Knitted Polo Shirts</p>
+                                <div class="title p-3">
+                                    <span class="text-danger fw-bold">US $28.95</span>
+                                    <p class="mt-2 mb-2 text-dark">Cropped Knitted Polo Shirts</p>
                                     <div class="rating">
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star-fill"></i>
@@ -254,9 +224,9 @@
                                         src="https://zandokh.com/image/catalog/products/2025-11/22225081776/TAKK7678.jpg"
                                         alt="">
                                 </div>
-                                <div class="title p-2">
-                                    <span><b>US $28.95</b></span>
-                                    <p>Regular Knitted Polo Shirts</p>
+                                <div class="title p-3">
+                                    <span class="text-danger fw-bold">US $28.95</span>
+                                    <p class="mt-2 mb-2 text-dark">Regular Knitted Polo Shirts</p>
                                     <div class="rating">
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star-fill"></i>
@@ -276,9 +246,9 @@
                                         src="https://zandokh.com/image/catalog/products/2025-07/12225041327/AFTERNOON28.06.202511664.jpg"
                                         alt="">
                                 </div>
-                                <div class="title p-2">
-                                    <span><b>US $28.95</b></span>
-                                    <p>Satin Flared Midi Skirt</p>
+                                <div class="title p-3">
+                                    <span class="text-danger fw-bold">US $13.96</span>
+                                    <p class="mt-2 mb-2 text-dark">Satin Flared Midi Skirt</p>
                                     <div class="rating">
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star-fill"></i>
@@ -298,9 +268,9 @@
                                         src="https://zandokh.com/image/catalog/products/2025-09/22225061587/ZD__1449.jpg"
                                         alt="">
                                 </div>
-                                <div class="title p-2">
-                                    <span><b>US $28.95</b></span>
-                                    <p>Midi Slitted Skirt</p>
+                                <div class="title p-3">
+                                    <span class="text-danger fw-bold">US $28.95</span>
+                                    <p class="mt-2 mb-2 text-dark">Midi Slitted Skirt</p>
                                     <div class="rating">
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star-fill"></i>
@@ -314,7 +284,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Promotion Products -->
         <section id="Promotion" class="py-5">
@@ -329,9 +299,12 @@
                                         src="https://zandokh.com/image/catalog/products/2025-11/22225081615%20/ZD__5509.jpg"
                                         alt="">
                                 </div>
-                                <div class="title p-2">
-                                    <span><b>US $28.95</b></span>
-                                    <p>Cropped Denim Jackets</p>
+                                <div class="title p-3">
+                                    <div class="mb-2">
+                                        <span class="text-danger fw-bold">US $19.95</span>
+                                        <span class="text-muted text-decoration-line-through ms-2">$28.95</span>
+                                    </div>
+                                    <p class="mb-2 text-dark">Cropped Denim Jackets</p>
                                     <div class="rating">
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star-fill"></i>
@@ -351,9 +324,12 @@
                                         src="https://zandokh.com/image/catalog/products/2025-10/22225051448/TAKK8892.jpg"
                                         alt="">
                                 </div>
-                                <div class="title p-2">
-                                    <span><b>US $28.95</b></span>
-                                    <p>Regular Denim Jackets</p>
+                                <div class="title p-3">
+                                    <div class="mb-2">
+                                        <span class="text-danger fw-bold">US $21.95</span>
+                                        <span class="text-muted text-decoration-line-through ms-2">$28.95</span>
+                                    </div>
+                                    <p class="mb-2 text-dark">Regular Denim Jackets</p>
                                     <div class="rating">
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star-fill"></i>
@@ -373,9 +349,12 @@
                                         src="https://zandokh.com/image/catalog/products/2025-05/22225031376/ZANDO290520250471.jpg"
                                         alt="">
                                 </div>
-                                <div class="title p-2">
-                                    <span><b>US $28.95</b></span>
-                                    <p>Slim Fitted T-Shirt</p>
+                                <div class="title p-3">
+                                    <div class="mb-2">
+                                        <span class="text-danger fw-bold">US $15.95</span>
+                                        <span class="text-muted text-decoration-line-through ms-2">$24.95</span>
+                                    </div>
+                                    <p class="mb-2 text-dark">Slim Fitted T-Shirt</p>
                                     <div class="rating">
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star-fill"></i>
@@ -395,9 +374,12 @@
                                         src="https://zandokh.com/image/catalog/products/2025-11/12225102260/ZD__8518.jpg"
                                         alt="">
                                 </div>
-                                <div class="title p-2">
-                                    <span><b>US $28.95</b></span>
-                                    <p>Regular Sweatshirts</p>
+                                <div class="title p-3">
+                                    <div class="mb-2">
+                                        <span class="text-danger fw-bold">US $22.95</span>
+                                        <span class="text-muted text-decoration-line-through ms-2">$32.95</span>
+                                    </div>
+                                    <p class="mb-2 text-dark">Regular Sweatshirts</p>
                                     <div class="rating">
                                         <i class="bi bi-star-fill"></i>
                                         <i class="bi bi-star-fill"></i>
@@ -470,6 +452,8 @@
                     href="../index.html#Popular">NR Fashion Store</a></p>
         </div>
     </footer>
+    
+    <script src="../js/shop.js"></script>
 </body>
 
 </html>
